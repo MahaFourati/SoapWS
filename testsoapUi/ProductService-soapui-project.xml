@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="134a8c56-6482-4854-9a6a-7736aae562dc" activeEnvironment="Default" name="ProductService" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8e00a1ab-b1e2-4188-ba7f-edd3ae1be47f" wsaVersion="NONE" name="ProductServiceEndpointServiceSoapBinding" type="wsdl" bindingName="{http://services.soap.test.com/}ProductServiceEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/soapws/soap-api/ProductService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/soapws/soap-api/ProductService?wsdl"><con:part><con:url>http://localhost:8080/soapws/soap-api/ProductService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ProductServiceEndpointService" targetNamespace="http://services.soap.test.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.soap.test.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://services.soap.test.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="productDto" type="tns:productDto"/>
+      <xs:complexType name="productDto">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="createDate" type="xs:dateTime"/>
+          <xs:element name="currency" type="xs:string"/>
+          <xs:element name="height" type="xs:double"/>
+          <xs:element minOccurs="0" name="id" type="xs:int"/>
+          <xs:element name="label" type="xs:string"/>
+          <xs:element name="unitPrice" type="xs:double"/>
+          <xs:element name="weight" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType final="#all" name="productDtoArray">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="item" nillable="true" type="tns:productDto"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="listResponse" nillable="true" type="tns:productDtoArray"/>
+      <xs:element name="delete" nillable="true" type="xs:int"/>
+      <xs:element name="find" nillable="true" type="xs:int"/>
+      <xs:element name="findResponse" nillable="true" type="tns:productDto"/>
+      <xs:element name="save" nillable="true" type="tns:productDto"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="deleteResponse"></wsdl:message>
+  <wsdl:message name="find">
+    <wsdl:part element="tns:find" name="find"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="list"></wsdl:message>
+  <wsdl:message name="delete">
+    <wsdl:part element="tns:delete" name="delete"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="saveResponse"></wsdl:message>
+  <wsdl:message name="listResponse">
+    <wsdl:part element="tns:listResponse" name="listResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="save">
+    <wsdl:part element="tns:save" name="save"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findResponse">
+    <wsdl:part element="tns:findResponse" name="findResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductService">
+    <wsdl:operation name="list">
+      <wsdl:input message="tns:list" name="list"></wsdl:input>
+      <wsdl:output message="tns:listResponse" name="listResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <wsdl:input message="tns:delete" name="delete"></wsdl:input>
+      <wsdl:output message="tns:deleteResponse" name="deleteResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <wsdl:input message="tns:find" name="find"></wsdl:input>
+      <wsdl:output message="tns:findResponse" name="findResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <wsdl:input message="tns:save" name="save"></wsdl:input>
+      <wsdl:output message="tns:saveResponse" name="saveResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductServiceEndpointServiceSoapBinding" type="tns:ProductService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="list">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="list">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="delete">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="delete">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="find">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="find">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="save">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="save">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductServiceEndpointService">
+    <wsdl:port binding="tns:ProductServiceEndpointServiceSoapBinding" name="ProductServiceEndpointPort">
+      <soap:address location="http://localhost:8080/soapws/soap-api/ProductService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/soapws/soap-api/ProductService</con:endpoint></con:endpoints><con:operation id="a72059f0-5a10-4f0a-a76b-1d908a8293fb" isOneWay="false" action="" name="delete" bindingOperationName="delete" type="Request-Response" outputName="deleteResponse" inputName="delete" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="78915b00-edec-4acc-8f1b-b6f18707310b" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soapws/soap-api/ProductService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.soap.test.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:delete>11</ser:delete>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.soap.test.com/ProductService/delete"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="379e6bde-7d5d-4bf0-ad17-566cac0fb80b" isOneWay="false" action="" name="find" bindingOperationName="find" type="Request-Response" outputName="findResponse" inputName="find" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="8a8c9569-37ee-4e1d-8af3-efd2fbea5b7e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soapws/soap-api/ProductService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.soap.test.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:find>10</ser:find>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.soap.test.com/ProductService/find"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a255cb9a-cd16-481b-bb21-485b49b8b498" isOneWay="false" action="" name="list" bindingOperationName="list" type="Request-Response" outputName="listResponse" inputName="list" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f4ff632-95f2-428d-a9fe-649dd2887269" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soapws/soap-api/ProductService</con:endpoint><con:request>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">\r
+   &lt;soapenv:Header/>\r
+   &lt;soapenv:Body/>\r
+&lt;/soapenv:Envelope></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.soap.test.com/ProductService/list"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="0d8f3830-ae0c-4dc9-a250-df85ac450070" isOneWay="false" action="" name="save" bindingOperationName="save" type="Request-Response" outputName="saveResponse" inputName="save" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2e1dbe4b-f5b4-4051-afe2-9c34f3460ddd" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soapws/soap-api/ProductService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.soap.test.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:save>\r
+         <currency>EUR</currency>\r
+         <height>10</height>\r
+         <label>Produit 1</label>\r
+         <unitPrice>12.7</unitPrice>\r
+         <weight>90</weight>\r
+      </ser:save>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.soap.test.com/ProductService/save"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0be8c01c-3e70-4ecc-b219-51b8ca8f67db" activeEnvironment="Default" name="AssociateService" resourceRoot="" soapui-version="5.6.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="6b00adbb-01c6-487d-9e72-9b35b2b564cf" wsaVersion="NONE" name="AssociateServiceEndpointServiceSoapBinding" type="wsdl" bindingName="{http://services.soap.test.com/}AssociateServiceEndpointServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/soapws/soap-api/AssociateService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/soapws/soap-api/AssociateService?wsdl"><con:part><con:url>http://localhost:8080/soapws/soap-api/AssociateService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="AssociateServiceEndpointService" targetNamespace="http://services.soap.test.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://services.soap.test.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://services.soap.test.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="associateDto" type="tns:associateDto"/>
+      <xs:complexType name="associateDto">
+        <xs:sequence>
+          <xs:element name="merchantId" type="xs:int"/>
+          <xs:element name="productId" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="associate" nillable="true" type="tns:associateDto"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="associate">
+    <wsdl:part element="tns:associate" name="associate"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="associateResponse"></wsdl:message>
+  <wsdl:portType name="AssociateService">
+    <wsdl:operation name="associate">
+      <wsdl:input message="tns:associate" name="associate"></wsdl:input>
+      <wsdl:output message="tns:associateResponse" name="associateResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AssociateServiceEndpointServiceSoapBinding" type="tns:AssociateService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="associate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="associate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="associateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssociateServiceEndpointService">
+    <wsdl:port binding="tns:AssociateServiceEndpointServiceSoapBinding" name="AssociateServiceEndpointPort">
+      <soap:address location="http://localhost:8080/soapws/soap-api/AssociateService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/soapws/soap-api/AssociateService</con:endpoint></con:endpoints><con:operation id="45669f9b-b709-492e-8745-a99e900f3571" isOneWay="false" action="" name="associate" bindingOperationName="associate" type="Request-Response" outputName="associateResponse" inputName="associate" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f53e45c8-ae73-46d0-93f5-d3b708db5079" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/soapws/soap-api/AssociateService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.soap.test.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ser:associate>\r
+         <merchantId>6</merchantId>\r
+         <productId>11</productId>\r
+      </ser:associate>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://services.soap.test.com/AssociateService/associate"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
